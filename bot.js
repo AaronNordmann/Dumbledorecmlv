@@ -148,7 +148,7 @@ function GetPlayersOnline(msg)
 		{   
 			var str = "Information serveur:";
 			var value = str.concat(' IP: ',response['address'],' Joueurs connectés: ',response['online'],'/',response['maxplayers']); 
-			const embedColor = 0x00ff00;
+			const embedColor = 0xC3BEFF;
 
 			const logMessage = {
 				embed: {
@@ -157,7 +157,7 @@ function GetPlayersOnline(msg)
 					fields: [
 						{ name: 'Serveur IP', value: response['address'], inline: true },
 						{ name: 'Joueurs connectés', value: response['online'], inline: true },
-						{ name: 'Max Players', value: response['maxplayers'], inline: true },
+						{ name: 'Slots', value: response['maxplayers'], inline: true },
 					],
 				}
 			}
