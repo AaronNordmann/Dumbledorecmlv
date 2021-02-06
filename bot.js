@@ -69,6 +69,7 @@ function toggle_debug()
 
 //________________________[Inagme Report Sync]_____________________________
 //@audit-info Report Sys
+/*
 var last_report = 0;
 function getLastReportId()
 {
@@ -117,7 +118,7 @@ function ReportSync()
 	
 	});
 
-}
+}*/
 //________________________[Inagme Functions]_____________________________
 function GetPlayersOnline(msg) 
 {
@@ -169,7 +170,7 @@ function GetPlayersOnline(msg)
 
 }
 //@audit-info BAN Functions
-function sBAN(msg,params)
+/*function sBAN(msg,params)
 {
 	permcheck = (msg.channel.id === adminCmdsChannelID) ? true : false;
 	if (params && permcheck) 
@@ -278,7 +279,7 @@ function uBAN_Process(banid)
   
 	
 }
-
+*/
 
 //_____________________[APPLICATION SYSTEM FUCNTIONS]_____________________________________
 
