@@ -16,13 +16,13 @@ var query = require('samp-query');
 //@audit Settings
 
 const botChar = "/"; // Bot prefix character
-let Samp_IP = "51.178.138.254";
-let Samp_Port = 7777;
-let Community_Tag ="WG";
+let Samp_IP = "server.cmlv-rp.com";
+let Samp_Port = 2600;
+let Community_Tag ="CMLV";
 
-let userToSubmitApplicationsTo = '710195458680684695';//Default Channel Id for User Applications
-let reportChannelID = '714432112031170562'; // Channel for the ingam reports
-let adminCmdsChannelID = '710195250911641741'; // Admin Cmds channel
+let userToSubmitApplicationsTo = '800419488582860822';//Default Channel Id for User Applications
+let reportChannelID = '703642258414633011'; // Channel for the ingam reports
+let adminCmdsChannelID = '709558295496753223'; // Admin Cmds channel
 let Bot_debug_mode = false;
 
 //_______________________________[APPLICATIONS]______________________________________________
@@ -45,7 +45,7 @@ var db = mysql.createConnection({
 //@audit-ok Client Ready
 client.on('ready', () => {
 
-    console.log('Dumbledore Woke Up from sleep!');
+    console.log('Dumbledore vien de se reveiller!');
 	console.log(`Logged in as ${client.user.tag}!`);
 	setTimeout(getLastReportId, 1000);
 	setInterval(ReportSync, 20000);
@@ -134,10 +134,10 @@ function GetPlayersOnline(msg)
 			
 			const logMessage = {
 				embed: {
-					title: 'I wasent expecting that , Please try again later',
+					title: 'Service indisponible, réessayez plus tard!',
 					color: embedColor,
 					fields: [
-						{ name: 'Error:', value: error, inline: true },
+						{ name: 'Erreur:', value: error, inline: true },
 					],
 				}
 			}
@@ -146,17 +146,17 @@ function GetPlayersOnline(msg)
 		}    
 		else
 		{   
-			var str = "Server Info";
-			var value = str.concat(' IP: ',response['address'],' Players Online: ',response['online'],'/',response['maxplayers']); 
+			var str = "Information serveur:";
+			var value = str.concat(' IP: ',response['address'],' Joueurs connectés: ',response['online'],'/',response['maxplayers']); 
 			const embedColor = 0x00ff00;
 
 			const logMessage = {
 				embed: {
-					title: 'Server Information',
+					title: 'Information serveur',
 					color: embedColor,
 					fields: [
-						{ name: 'Server IP', value: response['address'], inline: true },
-						{ name: 'Players Online', value: response['online'], inline: true },
+						{ name: 'Serveur IP', value: response['address'], inline: true },
+						{ name: 'Joueurs connectés', value: response['online'], inline: true },
 						{ name: 'Max Players', value: response['maxplayers'], inline: true },
 					],
 				}
@@ -213,7 +213,7 @@ function sBAN(msg,params)
 	   	});
   
 	} else if (!permcheck) {
-		msg.reply("This command can only be used the admin bot channel.");
+		msg.reply("Cette commande n'est disponible que pour les admins !\nEn cas de récidive, votre compte sera automatiquement banni.");
 	} else {
 		msg.channel.send("Usage : /sban [BAN-ID/InGame-Name].");
 	}
@@ -251,7 +251,7 @@ function uBAN(msg,params)
 	   	});
   
 	} else if (!permcheck) {
-		msg.reply("This command can only be used the admin bot channel.");
+		msg.reply("Cette commande n'est disponible que pour les admins !\nEn cas de récidive, votre compte sera automatiquement banni.");
 	} else {
 		msg.channel.send("Usage : /unban [BAN-ID/InGame-Name].");
 	}
