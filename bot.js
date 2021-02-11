@@ -172,7 +172,7 @@ function GetPlayersOnline(msg)
 		else
 		{   
 			var str = "Information serveur:";
-			var value = str.concat(' Nom: ',response['hostname'],' IP: ',response['address'],' Joueurs: ',response['online'], ' Version: ',response['gamemode']); 
+			var value = str.concat(' Nom: ',response['hostname'],' IP: ',response['address'],' Joueurs: ',response['online'], ' Slots: ', response['maxplayers'], Version: ',response['gamemode']); 
 			const embedColor = 0xa3b19a;
 			
 			const logMessage = {
@@ -183,6 +183,7 @@ function GetPlayersOnline(msg)
 						{ name: 'Nom', value: response['hostname'], inline: true},
 						{ name: 'IP', value: response['address'], inline: true},
 						{ name: 'Joueurs', value: response['online'], inline: true},
+						{ name: 'Slots', value: response['maxplayers'], inline: true},
 						{ name: 'Version', value: response['gamemode'], inline: true},
 						{ name: 'SAMP', value:'0.3DL', inline: true},
 						{ name: 'Lien SAMP+Cache+Jeu', value:'https://forum.cmlv-rp.com/t367516-', inline: true},
@@ -230,7 +231,7 @@ function GetPlayersInGame(msg)
 			var str = "Joueurs connectés InGame:";
 			var value = str.concat(' Joueurs: ',response['players']); 
 			
-			msg.channel.send("**Joueurs actuellement connectés In-Game** - IP: server.cmlv-rp.com:2600\nPour limiter le flood sur Discord, envoyez un message privé à Bob (?joueurs) pour connaitre les joueurs connectés !\n  ${players}");	
+			msg.channel.send("**Joueurs actuellement connectés In-Game** - IP: server.cmlv-rp.com:2600\nPour limiter le flood sur Discord, envoyez un message privé à Bob (?joueurs) pour connaitre les joueurs connectés !\n  $'players' \n");	
 			}
 			if(Bot_debug_mode)
 				console.log(value)
