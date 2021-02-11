@@ -228,12 +228,10 @@ function GetPlayersInGame(msg)
 		else
 		{   
 			var str = "Joueurs connectés InGame:";
-			var value = str.concat(' Nom: ',response['hostname'],' IP: ',response['address'],' Joueurs IG: ',response['players']); 
-		
-			const logMessage = {'players'}
+			var value = str.concat(' Joueurs: ',response['players']); 
 			
 			}
-			msg.channel.send(logMessage)
+			msg.channel.send(`**Joueurs actuellement connectés In-Game** - IP: server.cmlv-rp.com:2600\nPour limiter le flood sur Discord, envoyez un message privé à Bob (?joueurs) pour connaitre les joueurs connectés !\n  ${players}`)
 			if(Bot_debug_mode)
 				console.log(value)
 		}    
