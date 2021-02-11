@@ -183,7 +183,6 @@ function GetPlayersOnline(msg)
 						{ name: 'Nom', value: response['hostname'], inline: true},
 						{ name: 'IP', value: response['address'], inline: true},
 						{ name: 'Joueurs', value: response['online'], inline: true},
-						{ name: 'Site', value: response['wwww.cmlv-rp.com'], inline: true},
 						{ name: 'Version', value: response['gamemode'], inline: true},
 						{ name: 'SAMP', value:'0.3DL', inline: true},
 						{ name: 'Lien SAMP+Cache+Jeu', value:'https://forum.cmlv-rp.com/t367516-', inline: true},
@@ -230,18 +229,9 @@ function GetPlayersInGame(msg)
 		{   
 			var str = "Joueurs connectés InGame:";
 			var value = str.concat(' Nom: ',response['hostname'],' IP: ',response['address'],' Joueurs IG: ',response['players']); 
-			const embedColor = 0xa3b19a;
+		
+			const logMessage = {'players'}
 			
-			const logMessage = {
-				embed: {
-					title: 'CeMondeLeVotre - Joueurs InGame',
-					color: embedColor,
-					fields: [
-						{ name: 'Nom', value: response['hostname'], inline: true},
-						{ name: 'IP', value: response['address'], inline: true},
-						{ name: 'Joueurs IG', value: response['players'], inline: true},
-					],
-				}
 			}
 			msg.channel.send(logMessage)
 			if(Bot_debug_mode)
