@@ -188,6 +188,7 @@ function GetPlayersOnline(msg)
 						{ name: 'SAMP', value:'0.3DL', inline: true},
 						{ name: 'Lien SAMP+Cache+Jeu', value:'https://forum.cmlv-rp.com/t367516-', inline: true},
 						{ name: 'Fondateur', value:'Al_Caponi (Al_Caponi#5839)', inline: true},
+						{ name: 'Création', value:'Août 2008 (13 ans)', inline: true},
 					],
 				}
 			}
