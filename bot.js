@@ -229,7 +229,7 @@ function GetPlayersInGame(msg)
 		else
 		{   
 			var str = "Joueurs connectés InGame:";
-			var value = str.concat(' Nom: ',response['hostname'],' IP: ',response['address'],' Joueurs: ',response['players']); 
+			var value = str.concat(' Nom: ',response['hostname'],' IP: ',response['address'],' Joueurs IG: ',response['players']); 
 			const embedColor = 0xa3b19a;
 			
 			const logMessage = {
