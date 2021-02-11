@@ -176,7 +176,7 @@ function GetPlayersOnline(msg)
 			const embedColor = 0xa3b19a;
 
     
-    // return message.channel.send(embed);
+    			return message.channel.send(embed);
 			
 			const logMessage = {
 				embed: {
