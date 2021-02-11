@@ -186,7 +186,8 @@ function GetPlayersOnline(msg)
 						{ name: 'Slots', value: response['maxplayers'], inline: true},
 						{ name: 'Version', value: response['gamemode'], inline: true},
 						{ name: 'SAMP', value:'0.3DL', inline: true},
-						{ name: 'Lien SAMP+Cache+Jeu', value:'forum.cmlv-rp.com/t367516-', inline: true},
+						{ name: 'Lien SAMP+Cache+Jeu', value:'https://forum.cmlv-rp.com/t367516-', inline: true},
+						{ name: 'Fondateur', value:'Al_Caponi (Al_Caponi#5839)', inline: true},
 					],
 				}
 			}
