@@ -231,7 +231,9 @@ function GetPlayersInGame(msg)
 			var str = "Joueurs connectés InGame:";
 			var value = str.concat(' Joueurs: ',response['players']); 
 			
-			msg.channel.send("**Joueurs actuellement connectés In-Game** - IP: server.cmlv-rp.com:2600\nPour limiter le flood sur Discord, envoyez un message privé à Bob (?joueurs) pour connaitre les joueurs connectés !\n  'players' \n");	
+			msg.channel.send("**Joueurs actuellement connectés In-Game** - IP: server.cmlv-rp.com:2600\nPour limiter le flood sur Discord, envoyez un message privé à Bob (?joueurs) pour connaitre les joueurs connectés !\n");
+			msg.channel.send("response['players']);
+			msg.channel.send("['players']); 
 			}
 			if(Bot_debug_mode)
 				console.log(value)
