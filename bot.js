@@ -172,7 +172,7 @@ function GetPlayersOnline(msg)
 		else
 		{   
 			var str = "Information serveur:";
-			var value = str.concat(' Nom: ',response['hostname'],' IP: ',response['address'],' Joueurs: ',response['online'],'Site',response['weburl'], ' Version: ',response['gamemode']); 
+			var value = str.concat(' Nom: ',response['hostname'],' IP: ',response['address'],' Joueurs: ',response['online'], ' Version: ',response['gamemode']); 
 			const embedColor = 0xa3b19a;
 			
 			const logMessage = {
@@ -183,7 +183,7 @@ function GetPlayersOnline(msg)
 						{ name: 'Nom', value: response['hostname'], inline: true},
 						{ name: 'IP', value: response['address'], inline: true},
 						{ name: 'Joueurs', value: response['online'], inline: true},
-						{ name: 'Site', value: response['weburl'], inline: true},
+						{ name: 'Site', value: response['wwww.cmlv-rp.com'], inline: true},
 						{ name: 'Version', value: response['gamemode'], inline: true},
 						{ name: 'SAMP', value:'0.3DL', inline: true},
 						{ name: 'Lien SAMP+Cache+Jeu', value:'https://forum.cmlv-rp.com/t367516-', inline: true},
