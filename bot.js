@@ -174,7 +174,7 @@ function GetPlayersOnline(msg)
 			var str = "Information serveur:";
 			var value = str.concat(' Nom: ',response['hostname'],' IP: ',response['address'],' Players: ',response['online'],'Slots',response['maxplayers'], ' Version: ',response['gamemode']); 
 			const embedColor = 0xa3b19a;
-			const botIcon = bot.user.displayAvatarURL;
+			const botIcon = client.user.displayAvatarURL;
 			
 			const logMessage = {
 				embed: {
