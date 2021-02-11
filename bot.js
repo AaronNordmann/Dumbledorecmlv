@@ -174,11 +174,12 @@ function GetPlayersOnline(msg)
 			var str = "Information serveur:";
 			var value = str.concat(' Nom: ',response['hostname'],' IP: ',response['address'],' Players: ',response['online'],'Slots',response['maxplayers'], ' Version: ',response['gamemode']); 
 			const embedColor = 0xa3b19a;
+			const botIcon = bot.user.displayAvatarURL;
 			
 			const logMessage = {
 				embed: {
 					title: 'CeMondeLeVotre - Le meilleur serveur, tu parles de ça?',
-					thumbnail: 'https://images-ext-2.discordapp.net/external/b39fVuk03cFcufMa7PSmNKw_fhhNRLmZQUL1i4znOpA/%3Fsize%3D2048/https/cdn.discordapp.com/avatars/588516952826183695/d1247a231712142896328854f43153e8.png?',
+					thumbnail: botIcon,
 					color: embedColor,
 					fields: [
 						{ name: 'Nom', value: response['hostname'], inline: true},
