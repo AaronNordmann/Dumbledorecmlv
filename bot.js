@@ -172,7 +172,7 @@ function GetPlayersOnline(msg)
 		else
 		{   
 			var str = "Information serveur:";
-			var value = str.concat(' Nom: ',response['hostname'],' IP: ',response['address'],' Joueurs: ',response['online'],'Slots',response['maxplayers'], ' Version: ',response['gamemode']); 
+			var value = str.concat(' Nom: ',response['hostname'],' IP: ',response['address'],' Joueurs: ',response['online'],'Site',response['weburl'], ' Version: ',response['gamemode']); 
 			const embedColor = 0xa3b19a;
 			
 			const logMessage = {
@@ -183,12 +183,63 @@ function GetPlayersOnline(msg)
 						{ name: 'Nom', value: response['hostname'], inline: true},
 						{ name: 'IP', value: response['address'], inline: true},
 						{ name: 'Joueurs', value: response['online'], inline: true},
-						{ name: 'Slots', value: response['maxplayers'], inline: true},
+						{ name: 'Site', value: response['weburl'], inline: true},
 						{ name: 'Version', value: response['gamemode'], inline: true},
 						{ name: 'SAMP', value:'0.3DL', inline: true},
 						{ name: 'Lien SAMP+Cache+Jeu', value:'https://forum.cmlv-rp.com/t367516-', inline: true},
 						{ name: 'Fondateur', value:'Al_Caponi#5839', inline: true},
 						{ name: 'Crée', value:'08/2008', inline: true},
+					],
+				}
+			}
+			msg.channel.send(logMessage)
+			if(Bot_debug_mode)
+				console.log(value)
+		}    
+	})
+
+}
+// rajout 
+function GetPlayersInGame(msg) 
+{
+	var options = {
+		host: Samp_IP,
+		port: Samp_Port
+	}
+	//console.log(options.host)
+	query(options, function (error, response) {
+		if(error)
+		{
+			console.log(error)
+			const embedColor = 0xff0000;
+			
+			const logMessage = {
+				embed: {
+					title: 'Service indisponible, réessayez plus tard!',
+					color: embedColor,
+					fields: [
+						{ name: 'Erreur:', value: error, inline: true },
+					],
+				}
+			}
+			msg.channel.send(logMessage)
+			
+		}    
+		
+		else
+		{   
+			var str = "Joueurs connectés InGame:";
+			var value = str.concat(' Nom: ',response['hostname'],' IP: ',response['address'],' Joueurs: ',response['players']); 
+			const embedColor = 0xa3b19a;
+			
+			const logMessage = {
+				embed: {
+					title: 'CeMondeLeVotre - Joueurs InGame',
+					color: embedColor,
+					fields: [
+						{ name: 'Nom', value: response['hostname'], inline: true},
+						{ name: 'IP', value: response['address'], inline: true},
+						{ name: 'Joueurs IG', value: response['players'], inline: true},
 					],
 				}
 			}
@@ -619,6 +670,9 @@ client.on('message', msg => {
 			case "cmlv":
 				GetPlayersOnline(msg);
 				break;
+			case "joueurs":
+				GetPlayersInGame(msg);
+				break;				
 			case "cancel":
 				cancelUserApplicationForm(msg);
 				break;
