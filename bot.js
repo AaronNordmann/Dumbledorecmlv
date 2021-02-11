@@ -172,7 +172,7 @@ function GetPlayersOnline(msg)
 		else
 		{   
 			var str = "Information serveur:";
-			var value = str.concat(' Nom: ',response['hostname'],' IP: ',response['address'],' Players: ',response['online'],'Slots',response['maxplayers'], ' Version: ',response['gamemode']); 
+			var value = str.concat(' Nom: ',response['hostname'],' IP: ',response['address'],' Joueurs: ',response['online'],'Slots',response['maxplayers'], ' Version: ',response['gamemode']); 
 			const embedColor = 0xa3b19a;
 			
 			const logMessage = {
@@ -182,7 +182,7 @@ function GetPlayersOnline(msg)
 					fields: [
 						{ name: 'Nom', value: response['hostname'], inline: true},
 						{ name: 'IP', value: response['address'], inline: true},
-						{ name: 'Players', value: response['online'], inline: true},
+						{ name: 'Joueurs', value: response['online'], inline: true},
 						{ name: 'Slots', value: response['maxplayers'], inline: true},
 						{ name: 'Version', value: response['gamemode'], inline: true},
 						{ name: 'SAMP', value:'0.3DL', inline: true},
