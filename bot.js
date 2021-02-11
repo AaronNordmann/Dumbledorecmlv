@@ -15,7 +15,7 @@ var query = require('samp-query');
 //_____________________________[BOT Configuration]_________________________________________
 //@audit Settings
 
-const botChar = "/"; // Bot prefix character
+const botChar = "?"; // Bot prefix character
 let Samp_IP = "server.cmlv-rp.com";
 let Samp_Port = 2600;
 let Community_Tag ="CMLV";
@@ -593,7 +593,7 @@ client.on('message', msg => {
 
     }
 
-    if (msg.content === '/ip') 
+    if (msg.content === '?ip') 
     {
 
         msg.reply(`Server IP: ${Samp_IP}`);
@@ -616,7 +616,7 @@ client.on('message', msg => {
 			case "apply":
 				sendUserApplyForm(msg, parameters.join(" "));
 				break;
-			case "players":
+			case "cmlv":
 				GetPlayersOnline(msg);
 				break;
 			case "cancel":
