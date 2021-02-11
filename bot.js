@@ -174,12 +174,10 @@ function GetPlayersOnline(msg)
 			var str = "Information serveur:";
 			var value = str.concat(' Nom: ',response['hostname'],' IP: ',response['address'],' Players: ',response['online'],'Slots',response['maxplayers'], ' Version: ',response['gamemode']); 
 			const embedColor = 0xa3b19a;
-			const botIcon = client.user.displayAvatarURL;
 			
 			const logMessage = {
 				embed: {
 					title: 'CeMondeLeVotre - Le meilleur serveur, tu parles de ça?',
-					thumbnail: botIcon,
 					color: embedColor,
 					fields: [
 						{ name: 'Nom', value: response['hostname'], inline: true},
