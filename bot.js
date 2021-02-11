@@ -145,7 +145,7 @@ function GetPlayersOnline(msg)
 			msg.channel.send(logMessage)
 			
 		}    
-		else
+		/* else
 		{   
 			var str = "Information serveur:";
 			var value = str.concat(' IP: ',response['address'],' Joueurs connectés: ',response['online'],'/',response['maxplayers']); 
@@ -159,6 +159,38 @@ function GetPlayersOnline(msg)
 						{ name: 'Serveur IP', value: response['address'], inline: true },
 						{ name: 'Joueurs connectés', value: response['online'], inline: true },
 						{ name: 'Slots', value: response['maxplayers'], inline: true },
+					],
+				}
+			}
+			msg.channel.send(logMessage)
+			if(Bot_debug_mode)
+				console.log(value)
+		}    
+	})
+
+}*/
+		else
+		{   
+			var str = "Information serveur:";
+			var value = str.concat(' Nom: ',response['hostname'],' IP: ',response['address'],' Players: ',response['online'],'Slots',response['maxplayers'], ' Version: ',response['gamemode'],); 
+			const embedColor = 0xa3b19a;
+
+    
+    // return message.channel.send(embed);
+			
+			const logMessage = {
+				embed: {
+					title: 'CeMondeLeVotre - Le meilleur serveur, tu parles de ça?',
+					thumbnail: 'https://images-ext-2.discordapp.net/external/b39fVuk03cFcufMa7PSmNKw_fhhNRLmZQUL1i4znOpA/%3Fsize%3D2048/https/cdn.discordapp.com/avatars/588516952826183695/d1247a231712142896328854f43153e8.png?',
+					color: embedColor,
+					fields: [
+						{ name: 'Nom', value: response['hostname'], inline: true},
+						{ name: 'IP', value: response['address'], inline: true},
+						{ name: 'Players', value: response['online'], inline: true},
+						{ name: 'Slots', value: response['maxplayers'], inline: true},
+						{ name: 'Version', value: response['gamemode'], inline: true},
+						{ name: 'SAMP', value:'0.3DL', inline: true},
+						{ name: 'Lien SAMP+Cache+Jeu', value:'forum.cmlv-rp.com/t367516-', inline: true},
 					],
 				}
 			}
