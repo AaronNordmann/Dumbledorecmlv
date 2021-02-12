@@ -414,10 +414,10 @@ const sendUserApplyForm = (msg, appName) => {
             msg.channel.send(`Vous avez déjà soumis une approbation. Celle-ci est en cours de vérification par notre équipe administrive !\nIl est inutile de les relancer, celles-ci sont traitées régulièrements.`);
         }
 
-	} else if (!msg.guild) {
+	} /* else if (!msg.guild) {
 		msg.reply("This command can only be used in a guild.");
-	} else {
-		msg.reply(`Usage : $apply [Application Type]. \n Application Open are ${Community_Tag}-TAG \n Example Usage: $apply ${Community_Tag}-TAG `);
+	}*/ else {
+		msg.reply(`Utilisation : $verif [role]. \n Vérifications possibles pour le rôle: ${Community_Tag} \n Exemple: $verif ${Community_Tag} `);
 	}
     
     
@@ -429,37 +429,37 @@ const cancelUserApplicationForm = (msg, isRedo = false) => {
 
 	if (user) {
 		usersApplicationStatus = usersApplicationStatus.filter(el => el.id !== user.id)
-		msg.reply("Application canceled.");
+		msg.reply("Vous avez annulé le processus de vérification !");
 	} else if (!isRedo) {
-		msg.reply("You have not started an application form yet.");
+		msg.reply("Vous n'avez pas encore commencé le processus de vérification !\nUtilisez ?verif pour débuter celle-ci si ce n'est pas déjà fait !");
 	}
 };
 
 const applicationFormSetup = (msg) => {
 	if (!msg.guild) {
-		msg.reply("This command can only be used in a guild.");
+		msg.reply("Vous n'avez pas la permission pour faire cela !");
 		return;
 	}
 
 	if (!msg.member.roles.find("name", "Admin")) {
-		msg.reply("This command can only be used by an admin.");
+		msg.reply("Cette commande ne vous est pas accessible.");
 		return;
 	}
 
 	if (isSettingFormUp) {
-		msg.reply("Someone else is already configuring the form.");
+		msg.reply("Quelqu'un est déjà entrain de configurer le processus de vérification !");
 		return;
 	}
 
 	appNewForm = [];
 	isSettingFormUp = msg.author.id;
 
-	msg.author.send(`Enter questions and enter \`${botChar}endsetup\` when done.`);
+	msg.author.send(`Entrez les questions et \`${botChar}endsetup\` quand c'est terminé!`);
 };
 
 const endApplicationFormSetup = (msg) => {
 	if (isSettingFormUp !== msg.author.id) {
-		msg.reply("You are not the one setting the form up.");
+		msg.reply("Vous n'êtes pas entrain de configurer le processus de vérification");
 		return;
 	}
 
@@ -654,7 +654,7 @@ client.on('message', msg => {
 		}
 
 		switch (command.toLowerCase()) {
-			case "apply":
+			case "verif":
 				sendUserApplyForm(msg, parameters.join(" "));
 				break;
 			case "cmlv":
@@ -663,10 +663,10 @@ client.on('message', msg => {
 			case "joueurs":
 				GetPlayersInGame(msg);
 				break;				
-			case "cancel":
+			case "annuler":
 				cancelUserApplicationForm(msg);
 				break;
-			case "redo":
+			case "restart":
 				cancelUserApplicationForm(msg, true);
 				sendUserApplyForm(msg);
 				break;
