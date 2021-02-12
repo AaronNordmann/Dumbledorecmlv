@@ -20,7 +20,7 @@ let Samp_IP = "server.cmlv-rp.com";
 let Samp_Port = 2600;
 let Community_Tag ="CMLV";
 
-let userToSubmitApplicationsTo = '800419488582860822';//Default Channel Id for User Applications
+let userToSubmitApplicationsTo = '809510517915648090';//Default Channel Id for User Applications
 let reportChannelID = '703642258414633011'; // Channel for the ingam reports
 let adminCmdsChannelID = '709558295496753223'; // Admin Cmds channel
 let Bot_debug_mode = false;
@@ -364,10 +364,10 @@ const applicationFormCompleted = (data) => {
 
     const logMessage = {
         embed: {
-            title: `${Community_Tag} APPLICATION SUBMISSION BY ${data.user.username}`,
+            title: `${Community_Tag} RE: APPROBATION DE ${data.user.username}`,
             color: embedColor,
             fields: [
-                { name: 'Application Content', value: answers, inline: true },
+                { name: 'Demande de vérification:', value: answers, inline: true },
             ],
         }
     }
@@ -376,7 +376,7 @@ const applicationFormCompleted = (data) => {
 
 const addUserToRole = (msg, roleName) => {
 	if (roleName === "Admin") {
-		msg.reply("Stop trying to commit mutiny.")
+		msg.reply("Arrête d'essayer de commettre une mutinerie !")
 		return;
 	}
 
@@ -404,14 +404,14 @@ const sendUserApplyForm = (msg, appName) => {
     {
 		
         if (!user) {
-            msg.author.send(`Application commands: \`\`\`${botChar}cancel to cancel the app, ${botChar}redo to restart the app process\`\`\``);
+            msg.author.send(`Salut, tu es sur le point de demander une vérification à l'équipe administrative du Discord **CeMondeLeVotre**.\nSi votre demande respecte les conditions, vous recevrez en retour le rôle **Membre Communauté** pour pouvoir échanger avec les joueurs.\n \`\`\`${botChar}annuler pour interrompre la vérification, ${botChar}restart pour recommencer si trompé\`\`\``);
             msg.author.send(applicationQuestions[0]);
             usersApplicationStatus.push({id: msg.author.id, currentStep: 0, answers: [], user: msg.author});
-            msg.channel.send(`You Application process is started in DM.`);
+            msg.channel.send(`Vous avez reçu un message privé, répondez-y pour débuter la vérification !\n Si vous n'avez rien reçu, activez les messages provenants du serveur depuis vos paramètres.`);
         } else if(applicationQuestions[user.currentStep]) {
             msg.author.send(applicationQuestions[user.currentStep]);
         } else {
-            msg.channel.send(`You Application is already sumbitted and is under review.`);
+            msg.channel.send(`Vous avez déjà soumis une approbation. Celle-ci est en cours de vérification par notre équipe administrive !\nIl est inutile de les relancer, celles-ci sont traitées régulièrements.`);
         }
 
 	} else if (!msg.guild) {
