@@ -1,8 +1,8 @@
 module.exports =  [
-	"Your Ingame Name",
-	"Any Previous Names",
-	"How long have you been a part of WG community",
-	"Have you recived any punishment or infraction recently , if so mention the reason",
-	"State you intentions for applying for the WG TAG",
-	"Why do you think you deserve the [WG] Tag"
+	"Prénom_Nom InGame (il faut être inscrit et connecté sur le serveur)",
+	"Vos anciens pseudos InGame",
+	"Quel est votre niveau In-Game ainsi que votre anciennetée",
+	"Avez-vous récemment été sanctionné, si oui, indiquez la raison",
+	"Occupez vous un poste de leader (entreprise/faction) ou autre InGame",
+	"Je reconnais avoir pris en considération le réglèment du serveur Discord"
 ];
