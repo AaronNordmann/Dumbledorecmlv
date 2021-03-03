@@ -364,7 +364,7 @@ const applicationFormCompleted = (data) => {
 
     const logMessage = {
         embed: {
-            title: `${Community_Tag} | Vérification de ${data.user.tag} - ${data.user.username} - ${msg.author.id}`,
+            title: `${Community_Tag} | Vérification de ${data.user.tag} - ${data.user.username} - ${data.user.id}`,
             color: embedColor,
             fields: [
                 { name: 'Veuillez procéder à la vérification de la demande:\n', value: answers, inline: true },
