@@ -404,7 +404,7 @@ const sendUserApplyForm = (msg, appName) => {
     {
 		
         if (!user) {
-            msg.author.send(`Salut, tu es sur le point de demander une vérification à l'équipe administrative du Discord **CeMondeLeVotre**.\nVous recevrez en retour le rôle **Membre Communauté** pour pouvoir échanger avec les joueurs si elle approuvée.\n\nCommandes possibles: \`\`\`**${botChar}annuler :** permet d'interrompre la vérification\n${botChar}restart :** permet de recommencer la vérification\`\`\`\n\nSi vous êtes prêt, vous pouvez répondre aux questions ci-dessous !\n\n`);
+            msg.author.send(`Salut, tu es sur le point de demander une vérification à l'équipe administrative du Discord **CeMondeLeVotre**.\nVous recevrez en retour le rôle **Membre Communauté** pour pouvoir échanger avec les joueurs si elle approuvée.\n\nCommandes possibles: \`\`\`${botChar}annuler : permet d'interrompre la vérification\n${botChar}restart : permet de recommencer la vérification\`\`\`\n\nSi vous êtes prêt, vous pouvez répondre aux questions ci-dessous !\n\n`);
             msg.author.send(applicationQuestions[0]);
             usersApplicationStatus.push({id: msg.author.id, currentStep: 0, answers: [], user: msg.author});
             msg.channel.send(`Vous avez reçu un message privé, répondez-y pour débuter la vérification !\n Si vous n'avez rien reçu, activez les messages provenants du serveur depuis vos paramètres.`);
