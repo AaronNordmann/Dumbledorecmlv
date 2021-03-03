@@ -404,20 +404,20 @@ const sendUserApplyForm = (msg, appName) => {
     {
 		
         if (!user) {
-            msg.author.send(`Salut, tu es sur le point de demander une vérification à l'équipe administrative du Discord **CeMondeLeVotre**.\nSi votre demande respecte les conditions, vous recevrez en retour le rôle **Membre Communauté** pour pouvoir échanger avec les joueurs.\n \`\`\`${botChar}annuler pour interrompre la vérification, ${botChar}restart pour recommencer si trompé\`\`\``);
+            msg.author.send(`Salut, tu es sur le point de demander une vérification à l'équipe administrative du Discord **CeMondeLeVotre**.\nVous recevrez en retour le rôle **Membre Communauté** pour pouvoir échanger avec les joueurs si elle approuvée.\n\nCommandes possibles: \`\`\`**${botChar}annuler :** permet d'interrompre la vérification\n${botChar}restart :** permet de recommencer la vérification\`\`\`\n\nSi vous êtes prêt, vous pouvez répondre aux questions ci-dessous !\n\n`);
             msg.author.send(applicationQuestions[0]);
             usersApplicationStatus.push({id: msg.author.id, currentStep: 0, answers: [], user: msg.author});
             msg.channel.send(`Vous avez reçu un message privé, répondez-y pour débuter la vérification !\n Si vous n'avez rien reçu, activez les messages provenants du serveur depuis vos paramètres.`);
         } else if(applicationQuestions[user.currentStep]) {
             msg.author.send(applicationQuestions[user.currentStep]);
         } else {
-            msg.channel.send(`Vous avez déjà soumis une approbation. Celle-ci est en cours de vérification par notre équipe administrive !\nIl est inutile de les relancer, celles-ci sont traitées régulièrements.`);
+            msg.channel.send(`Vous avez déjà soumis une approbation. Celle-ci est en cours de vérification par notre équipe administrive !\nIl est inutile de les relancer, celles-ci sont traitées fréquemment.`);
         }
 
 	} /* else if (!msg.guild) {
 		msg.reply("This command can only be used in a guild.");
 	}*/ else {
-		msg.reply(`Utilisation : $verif [role]. \n Vérifications possibles pour le rôle: ${Community_Tag} \n Exemple: $verif ${Community_Tag} `);
+		msg.reply(`Utilisation : ${botChar}verif [role]. \n Vérifications possibles pour le rôle: ${Community_Tag} \n Exemple: ${botChar}verif ${Community_Tag} `);
 	}
     
     
@@ -429,9 +429,9 @@ const cancelUserApplicationForm = (msg, isRedo = false) => {
 
 	if (user) {
 		usersApplicationStatus = usersApplicationStatus.filter(el => el.id !== user.id)
-		msg.reply("Vous avez annulé le processus de vérification !");
+		msg.reply(`Vous avez annulé le processus de vérification !\nPour recommencer, il vous faut à nouveau **${botChar}verif** dans le salon attente-permission sur le Discord de CMLV.`);
 	} else if (!isRedo) {
-		msg.reply("Vous n'avez pas encore commencé le processus de vérification !\nUtilisez ?verif pour débuter celle-ci si ce n'est pas déjà fait !");
+		msg.reply(`Vous n'avez pas encore commencé le processus de vérification !\nUtilisez **${botChar}verif ${Community_Tag} pour débuter celle-ci si automatiquement.`);
 	}
 };
 
@@ -720,7 +720,7 @@ client.on('message', msg => {
 
 					if (user.currentStep >= applicationQuestions.length) {
 						applicationFormCompleted(user);
-						msg.author.send("Congratulations your application has been sent!");
+						msg.author.send("Félicitations, votre vérification vient d'être remise au staff de CeMondeLeVotre.\nVous recevrez vos droits (permissions d'accès aux salons) sous peu ! À bientôt.");
 					} else {
 						msg.author.send(applicationQuestions[user.currentStep]);
 					}
