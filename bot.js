@@ -364,10 +364,10 @@ const applicationFormCompleted = (data) => {
 
     const logMessage = {
         embed: {
-            title: `${Community_Tag} RE: APPROBATION DE ${data.user.username}`,
+            title: `${Community_Tag} | Vérification de  @${data.user.username}`,
             color: embedColor,
             fields: [
-                { name: 'Demande de vérification:', value: answers, inline: true },
+                { name: 'Veuillez procéder à la vérification de la demande:', value: answers, inline: true },
             ],
         }
     }
