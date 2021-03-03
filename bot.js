@@ -20,7 +20,7 @@ let Samp_IP = "server.cmlv-rp.com";
 let Samp_Port = 2600;
 let Community_Tag ="CMLV";
 
-let userToSubmitApplicationsTo = '809510517915648090';//Default Channel Id for User Applications
+let userToSubmitApplicationsTo = '725035439412477982';//Default Channel Id for User Applications
 let reportChannelID = '703642258414633011'; // Channel for the ingam reports
 let adminCmdsChannelID = '709558295496753223'; // Admin Cmds channel
 let Bot_debug_mode = false;
@@ -364,10 +364,10 @@ const applicationFormCompleted = (data) => {
 
     const logMessage = {
         embed: {
-            title: `${Community_Tag} | Vérification de ${data.user.tag}`,
+            title: `${Community_Tag} | Vérification de ${data.user.tag} - ${data.user.username}`,
             color: embedColor,
             fields: [
-                { name: 'Veuillez procéder à la vérification de la demande:', value: answers, inline: true },
+                { name: 'Veuillez procéder à la vérification de la demande:\n', value: answers, inline: true },
             ],
         }
     }
