@@ -182,7 +182,7 @@ function GetPlayersOnline(msg)
 					fields: [
 						{ name: 'Nom', value: response['hostname'], inline: true},
 						{ name: 'IP', value: 'server.cmlv-rp.com:2600', inline: true},
-						{ name: 'Joueurs', value: '39', inline: true},
+						{ name: 'Joueurs', value: response['online'], inline: true},
 						{ name: 'Slots', value: response['maxplayers'], inline: true},
 						{ name: 'Version', value: response['gamemode'], inline: true},
 						{ name: 'SAMP', value:'0.3DL', inline: true},
