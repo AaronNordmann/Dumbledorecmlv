@@ -364,7 +364,7 @@ const applicationFormCompleted = (data) => {
 
     const logMessage = {
         embed: {
-            title: `Discord : Membre Communauté : ${Community_Tag}\nVérification de ${data.user.tag} - @${data.user.tag} - ID: ${data.user.id}`,
+            title: `Discord : Membre Communauté : ${Community_Tag}\nVérification de ${data.user.tag} - ${data.author.tag} - ID: ${data.user.id}`,
             color: embedColor,
             fields: [
                 { name: 'Veuillez procéder à la vérification de la demande:\nSi les réponses sont valides, attribuez lui le(s) rôle(s).\n\n', value: answers, inline: true },
